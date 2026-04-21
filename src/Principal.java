@@ -1,4 +1,5 @@
 import models.Oiseau;
+import models.Tuyau;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +9,8 @@ import java.awt.event.KeyListener;
 public class Principal extends Canvas implements KeyListener {
 
     private JFrame fenetre = new JFrame();
+    private Oiseau oiseau;
+    private Tuyau tuyau;
 
     public Principal() throws InterruptedException {
 
@@ -43,9 +46,13 @@ public class Principal extends Canvas implements KeyListener {
 
     public void demarrer() throws InterruptedException {
 
-        Oiseau oiseau = new Oiseau();
+        oiseau = new Oiseau();
         oiseau.setX(200);
         oiseau.setY(200);
+
+        tuyau = new Tuyau();
+        tuyau.setX(800);
+        tuyau.setY(300);
 
         while(true) {
 
@@ -56,6 +63,9 @@ public class Principal extends Canvas implements KeyListener {
 
             oiseau.deplacement();
             oiseau.dessiner(dessin);
+
+            tuyau.deplacement();
+            tuyau.dessiner(dessin);
 
             //enregistrement du dessin
             dessin.dispose();
@@ -85,7 +95,7 @@ public class Principal extends Canvas implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-
+            oiseau.saut();
         }
     }
 }

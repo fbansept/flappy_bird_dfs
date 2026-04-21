@@ -16,4 +16,15 @@ public class Oiseau extends Sprite{
         dessin.fillOval(x,y, 50, 50);
     }
 
+    public void saut(){
+       this.gravite = -5;
+    }
+
+    public float getGravite() {
+        return gravite;
+    }
+
+    public void setGravite(float gravite) {
+        this.gravite = gravite;
+    }
 }
