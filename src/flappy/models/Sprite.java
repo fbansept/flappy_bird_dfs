@@ -1,4 +1,4 @@
-package models;
+package flappy.models;
 
 public class Sprite {
 

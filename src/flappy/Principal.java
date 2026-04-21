@@ -1,5 +1,7 @@
-import models.Oiseau;
-import models.Tuyau;
+package flappy;
+
+import flappy.models.Oiseau;
+import flappy.models.Tuyau;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,16 +10,19 @@ import java.awt.event.KeyListener;
 
 public class Principal extends Canvas implements KeyListener {
 
+    public static final int LARGEUR = 800;
+    public static final int HAUTEUR = 600;
+
     private JFrame fenetre = new JFrame();
     private Oiseau oiseau;
     private Tuyau tuyau;
 
     public Principal() throws InterruptedException {
 
-        fenetre.setSize(800, 600);
+        fenetre.setSize(LARGEUR, HAUTEUR);
 
-        this.setSize(800, 600);
-        this.setBounds(0, 0, 800, 600);
+        this.setSize(LARGEUR, HAUTEUR);
+        this.setBounds(0, 0, LARGEUR, HAUTEUR);
 
         //addEventListener("click", () => console.log("coucou") )
         fenetre.addKeyListener(this);
@@ -51,7 +56,7 @@ public class Principal extends Canvas implements KeyListener {
         oiseau.setY(200);
 
         tuyau = new Tuyau();
-        tuyau.setX(800);
+        tuyau.setX(LARGEUR);
         tuyau.setY(300);
 
         while(true) {
@@ -59,7 +64,7 @@ public class Principal extends Canvas implements KeyListener {
             Graphics2D dessin = (Graphics2D) this.getBufferStrategy().getDrawGraphics();
 
             dessin.setColor(Color.white);
-            dessin.fillRect(0,0, 800, 600);
+            dessin.fillRect(0,0, LARGEUR, HAUTEUR);
 
             oiseau.deplacement();
             oiseau.dessiner(dessin);

@@ -1,4 +1,4 @@
-package models;
+package flappy.models;
 
 import java.awt.*;
 
